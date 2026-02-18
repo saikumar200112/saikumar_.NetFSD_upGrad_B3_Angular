@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #f8f9fa;
+        }
+
+    
+        main {
+            display: grid;
+            grid-template-columns: 1fr; 
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .blog-card {
+            background: white;
+            border: 1px solid paleturquoise;
+            border-radius: 16px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px; 
+            box-shadow: 0 10px 25px -5px rgba(255, 0, 0, 0.2);
+        }
+
+        .blog-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .read-more {
+            background-color: blue;
+            color: white;
+            display: inline-block; /* Changed to inline-block for padding to work better */
+            text-decoration: none;
+            text-align: center;
+            border-radius: 10px;
+            padding: 10px 20px;
+            margin-top: auto; /* Pushes button to bottom if cards have different heights */
+        }
+
+        .read-more:hover {
+            background-color: blueviolet;
+        }
+
+        @media (min-width: 600px) {
+            main {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            main {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .blog-card:hover {
+                box-shadow: 0 10px 25px -5px red;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Programming Languages</h1>
+        <p>Programming languages are used to develop real-time applications.</p>
+    </header>
+
+    <main>
+        <article class="blog-card">
+            <h3>JAVA</h3>
+            <p>Java is an object-oriented programming language used to build applications.</p>
+            <a href="#" class="read-more">Read more</a>
+        </article>
+
+        <article class="blog-card">
+            <h3>PYTHON</h3>
+            <p>Python is an object-oriented programming language used to build web applications.</p>
+            <a href="#" class="read-more">Read more</a>
+        </article>
+
+        <article class="blog-card">
+            <h3>JAVASCRIPT</h3>
+            <p>JavaScript is an object-oriented programming language used to build applications.</p>
+            <a href="#" class="read-more">Read more</a>
+        </article>
+
+        <article class="blog-card">
+            <h3>HTML</h3>
+            <p>HTML is used to create web pages.</p>
+            <a href="#" class="read-more">Read more</a>
+        </article>
+
+        <article class="blog-card">
+            <h3>CSS</h3>
+            <p>CSS is used for styling HTML pages.</p>
+            <a href="#" class="read-more">Read more</a>
+        </article>
+
+        <article class="blog-card">
+            <h3>ANDROID DEVELOPMENT</h3>
+            <p>Android development is used to build mobile applications.</p>
+            <a href="#" class="read-more">Read more</a>
+        </article>
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+body{
+    background-color: gainsboro;
+    color: #333;
+    padding: 20px;
+}
+h1{
+    text-align: center;
+    color: #2c3e50;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+p{
+    color:#555;
+    background-color: aliceblue;
+}
+.container p{
+   background-color: antiquewhite;
+   padding: 10px;
+}
+form{
+    margin-top: 10px;
+
+}
+legend{
+    background-color: aqua;
+}
+input{
+    border-radius: 10px;
+    border-color: aquamarine;
+}
+
