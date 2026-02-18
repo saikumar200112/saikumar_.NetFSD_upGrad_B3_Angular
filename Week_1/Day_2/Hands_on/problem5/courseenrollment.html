@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Course Enrollment Form</title>
+</head>
+<body>
+
+    <h1 align="center">Course Enrollment Form</h1>
+
+    <form>
+        <fieldset>
+            <legend>Student Enrollment Details</legend>
+
+            <p>
+                <label for="course">Select Course:</label><br>
+                <input list="courses" id="course" name="course" required placeholder="Type to search...">
+                <datalist id="courses">
+                    <option value="HTML Basics">
+                    </option><option value="Web Development">
+                    </option><option value="JavaScript Fundamentals">
+                    </option><option value="Advanced CSS">
+                </option></datalist>
+            </p>
+
+            <p>
+                <label for="email">Email Address:</label><br>
+                <input type="email" id="email" name="email" required placeholder="example@mail.com">
+            </p>
+
+            <p>
+                <label for="skill">Skill Level (Beginner to Advanced):</label><br>
+                <input type="range" id="skill" name="skill" min="0" max="100" value="70">
+                <br>
+                <small>Visual Indicator:</small>
+                <meter id="skill-meter" min="0" max="100" low="30" high="80" optimum="90" value="70"></meter>
+            </p>
+
+            <p>
+                <label for="progress">Enrollment Form Progress:</label><br>
+                <progress id="progress" value="60" max="100"></progress>
+            </p>
+
+            <p>
+                <label for="age">Age:</label><br>
+                <input type="number" id="age" name="age" min="18" max="100" required>
+            </p>
+
+            <p>
+                <input type="submit" value="Enroll Now">
+            </p>
+
+        </fieldset>
+    </form>
+
+</body>
+</html>
