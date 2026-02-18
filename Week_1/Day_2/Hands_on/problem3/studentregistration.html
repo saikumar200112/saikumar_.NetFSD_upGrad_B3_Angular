@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <header>
+        <h1 align="center">STUDENT REGISTRATION FORM</h1>
+    </header>
+</head>
+<body>
+    <form action="Login.php" method="post">
+       <fieldset>
+        <legend><h2>Student Registration Form</h2></legend>
+        <label>Student Name :</label>
+        <input type="text" id="s1" name="s1" placeholder="Enter Name" required/>
+        <br/><br/>
+        <label>Email :</label>
+        <input type="email" id="e1" name="e1" placeholder="Enter Email" required/>
+        <br/><br/>
+        <label>Phone :</label>
+        <input type="tel" id="p1" name="p1" placeholder="Enter Phone Number" pattern="[0,9]" required/>
+        <br/><br/>
+        <label>Age :</label>
+        <input type="number" id="n1" name="n1" min="18" max="25"/>
+        <br/><br/>
+        <label>Date :</label>
+        <input type="date" id="d1" name="d1" required/>
+        <br/><br/>
+        <input type="submit" value="submit"/>
+
+       </fieldset>
+    </form>
+    
+</body>
+</html>
