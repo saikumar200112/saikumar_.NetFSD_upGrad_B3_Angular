@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+</head>
+<body>
+    <fieldset>
+    <label >Number:</label>
+    <input type="number" id="n" placeholder="Enter Number"/>
+    <br/><br/>
+   <button id="b1" onclick="onlink()">Checking</button>
+    <p id="p1"></p>
+    <br/><br/>
+    <button id="b2" onclick="checking()">Even or Odd</button>
+    <p id="p2"></p>
+    <br/><br/>
+    <button id="b3" onclick="looping()">looping</button>
+    <p id="p3"></p>
+    </fieldset>
+    <script>
+    function onlink(){
+    
+        let num=Number(document.getElementById("n").value);
+        let checkobj=document.getElementById("p1");
+       
+        let positivity=(num>=0) ?"positive":"negative";
+        checkobj.innerHTML=positivity+"number"
+    }
+    function checking(){
+        let num=Number(document.getElementById("n").value);
+        let evenodd=document.getElementById("p2");
+        if(num%2==0){
+            evenodd.innerHTML="Even number";
+        }
+        else{
+            evenodd.innerHTML="Odd number";
+        }
+    }
+    function looping(){
+        let num=Number(document.getElementById("n").value);
+        let lopping=document.getElementById("p3");
+        lopping.innerHTML="";
+        for(let i=1;i<=num;i++){
+           lopping.innerHTML=lopping.innerHTML+ i +" "; 
+        }
+        
+    }
+    
+    </script>
+</body>
+</html>

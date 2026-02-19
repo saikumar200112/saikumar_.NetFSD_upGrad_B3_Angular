@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Analysis Tool</title>
+    
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff; 
+            margin: 0;
+            padding: 20px;
+            font-size: 22px; 
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            background-color: #333;
+        }
+
+        nav ul li a {
+            color: white;
+            padding: 15px 20px;
+            display: block;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+        }
+
+        
+        @media (max-width: 600px) {
+            body {
+                background-color: #ffccbc; 
+                font-size: 16px;           
+            }
+
+
+            nav ul {
+                flex-direction: column; 
+                text-align: center;
+            }
+
+            nav ul li {
+                border-bottom: 1px solid #555;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Responsive Test Page</h1>
+        <p>If you are on a desktop, shrink your browser window width to see the magic happen!</p>
+        <p>The background will change, the font will shrink, and the menu will stack vertically.</p>
+    </div>
+
+</body>
+</html>

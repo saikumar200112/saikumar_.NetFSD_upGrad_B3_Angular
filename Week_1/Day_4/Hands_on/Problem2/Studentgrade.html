@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>StudentGrade</title>
+</head>
+<body>
+    <h1 align="center">StudentGrade</h1>
+    <input type="number" id="n" placeholder="Enter Number"/>
+    <button id="b1" onclick="onlink()">Button</button>
+    <script>
+        function onlink(){
+        let marks=Number(document.getElementById("n").value);
+        if(marks>=75){
+            console.log("A Grade");
+        }
+        else if(marks>=60 || marks<75){
+           console.log("B Grade");
+        }
+        else if(marks>=40 || marks<60){
+            console.log("C Grade");
+        }
+        else{
+            console.log("Fail");
+        }
+    }
+    </script>
+</body>
+</html>

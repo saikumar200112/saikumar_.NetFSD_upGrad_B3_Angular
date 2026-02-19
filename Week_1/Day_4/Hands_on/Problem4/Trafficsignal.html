@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+</head>
+<body>
+  <input type="text" id="t1" placeholder="Enter Color">
+  <button id="b1" onclick="checksignal()">button</button>
+    <script>
+      function checksignal(){
+
+        let color_1=document.getElementById("t1").value;
+        let result;
+        switch(color_1){
+          case "red":
+            result="stop";
+            break;
+          case "yellow":
+            result="get ready";
+            break;
+           case "green":
+              result="go"
+        }
+        console.log("you can"+" "+result );
+      }
+    </script>
+</body>
+</html>
