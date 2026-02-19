@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Personal Profile Card</title>
+    <style>
+        body {
+            background-color: #f4f7f6;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* The Profile Card (Box Model implementation) */
+        .profile-card {
+            background-color: #ffffff;
+            width: 320px;
+            padding: 30px; 
+            margin: 20px; 
+            border: 1px solid #e0e0e0;
+            border-radius: 15px; 
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+
+        .name {
+            font-size: 24px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 5px;
+            text-transform: capitalize;
+        }
+
+        .role {
+            font-size: 14px;
+            font-weight: 600;
+            color: #007bff;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 15px;
+        }
+
+        .description {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        /* Button Styling */
+        .contact-btn {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .contact-btn:hover {
+            background-color: #007bff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="profile-card">
+        <h2 class="name">Saikumar</h2>
+        <p class="role"> Dot Anugular Developer</p>
+        <p class="description">
+            Passionate about building clean, accessible, and user-friendly web interfaces. 
+            I love exploring new CSS techniques and simplifying complex problems.
+        </p>
+        <button class="contact-btn">Get In Touch</button>
+    </div>
+
+</body>
+</html>
