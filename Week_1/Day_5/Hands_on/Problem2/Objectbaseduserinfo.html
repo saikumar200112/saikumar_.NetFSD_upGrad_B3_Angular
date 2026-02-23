@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+</head>
+<body>
+    <button id="b1" onclick="initaldisaplay()">Display User Info</button>
+    <div class="container">
+        <p id="p1"> </p>
+        <p id="p2"> </p>
+        <p id="p3"> </p>
+    </div>
+    <script>
+        function initaldisaplay(){
+            let user={
+                name:"saikumar",
+                age:"24",
+                city:"Tirupati"
+            };
+         displayUserInfo(user);
+        }
+        function displayUserInfo(userobj){
+            document.getElementById("p1").innerHTML="Name:"+" "+ userobj.name;
+            document.getElementById("p2").innerHTML="Age:"+" "+userobj.age;
+            document.getElementById("p3").innerHTML="City:"+" "+userobj.city;
+        }
+    </script>
+</body>
+</html>

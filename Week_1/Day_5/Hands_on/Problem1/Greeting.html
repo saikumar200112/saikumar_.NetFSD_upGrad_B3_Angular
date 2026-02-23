@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+</head>
+<body>
+    <input type="text" id="n" placeholder="Enter your Name"/>
+    <button id="b1" onclick="greeting()">Generate Greeting</button>
+    <p id="p"></p>
+    <script>
+        function greeting(){
+          let nameobj=document.getElementById("n").value;
+          let greeting=document.getElementById("p");
+          greeting.innerHTML="Hello,"+nameobj +"!Welcome to our website";
+        }
+    </script>
+</body>
+</html>
