@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+</head>
+<body>
+    <textarea type="text" id="text-id" rows="10" cols="30"></textarea>
+    <br/><br/>
+    <button onclick="savedata()" >Savedata</button>
+    <button onclick="cleardata()">Cleardata</button>
+    <script>
+        let key_note="UserNote";
+        let noteText=document.getElementById("text-id");
+        let SaveData=localStorage.getItem(key_note);
+        if(SaveData){
+            noteText.value=SaveData;
+        }
+        function savedata(){
+            let text=noteText.value;
+            localStorage.setItem(key_note , text);
+            alert("Data saved");
+        }
+        function cleardata(){
+            localStorage.removeItem(key_note);
+            noteText.value="";
+            alert("Data removed");
+        }
+    </script>
+</body>
+</html>

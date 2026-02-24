@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+</head>
+<body>
+    <div>
+    <h3>Registration Form</h3>
+    <label>Name :</label>
+    <input type="text" id="userName" placeholder="Name" onchange="validateName()">
+    <p id="nameError" style="color: red;"></p>
+    <label>Email :</label>
+    <input type="email" id="userEmail" placeholder="Email" onchange="validateEmail()">
+    <p id="emailError" style="color: red;"></p>
+    <label>Age :</label>
+    <input type="number" id="userAge" placeholder="Age" onchange="validateAge()">
+    <p id="ageError" style="color: red;"></p>
+
+    <button onclick="saveData()">Register</button>
+    <h4 id="statusMessage"></h4>
+    </div>
+   
+<script>
+    function saveData() {
+    let name = document.getElementById("userName").value;
+    let email = document.getElementById("userEmail").value;
+    let age = document.getElementById("userAge").value;
+
+    let isNameValid = name !== "";
+    let isEmailValid = email.includes("@");
+    let isAgeValid = age > 18;
+
+    document.getElementById("nameError").innerText = isNameValid ? "" : "Name cannot be empty!";
+    document.getElementById("emailError").innerText = isEmailValid ? "" : "Email must contain @";
+    document.getElementById("ageError").innerText = isAgeValid ? "" : "Age must be greater than 18";
+
+    if (isNameValid && isEmailValid && isAgeValid) {
+        sessionStorage.setItem("reg_name", name);
+        sessionStorage.setItem("reg_email", email);
+        sessionStorage.setItem("reg_age", age);
+        
+        let status = document.getElementById("statusMessage");
+        status.innerText = "Data Saved Successfully!";
+        status.style.color = "green";
+    } else {
+        alert("Please fix errors before submitting.");
+    }
+}
+</script>
+</body>
+</html>

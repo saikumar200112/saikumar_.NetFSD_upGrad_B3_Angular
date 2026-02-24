@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Location Logger</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        .box { border: 1px solid black; padding: 10px; margin-bottom: 10px; width: fit-content; }
+        li { background: #eee; margin: 5px 0; padding: 10px; list-style: none; }
+    </style>
+</head>
+<body onload="showHistory()">
+
+    <h2>Location Tracker</h2>
+    
+    <div class="box">
+        <p>Latitude: <span id="lat">0</span></p>
+        <p>Longitude: <span id="lon">0</span></p>
+    </div>
+
+    <button onclick="getLocation()">Get My Location</button>
+
+    <h3>Recent History (Last 5)</h3>
+    <ul id="history"></ul>
+
+    <script>
+      function getLocation() {
+    if (navigator.geolocation) {
+
+        navigator.geolocation.getCurrentPosition(showPos, showErr);
+    } else {
+        alert("Geolocation is not supported by this browser.");
+    }
+}
+
+function showPos(position) {
+    let myLat = position.coords.latitude;
+    let myLon = position.coords.longitude;
+
+    document.getElementById("lat").innerHTML = myLat;
+    document.getElementById("lon").innerHTML = myLon;
+
+    saveData(myLat, myLon);
+}
+
+function showErr(error) {
+    if (error.code == 1) alert("User denied Permission.");
+    else if (error.code == 2) alert("Location unavailable.");
+    else if (error.code == 3) alert("Request timed out.");
+}
+
+function saveData(lat, lon) {
+    let list = JSON.parse(localStorage.getItem("myLocs")) || [];
+
+    let newEntry = { lat: lat, lon: lon, date: new Date().toLocaleTimeString() };
+    list.unshift(newEntry);
+
+    if (list.length > 5) {
+        list.pop(); 
+    }
+    localStorage.setItem("myLocs", JSON.stringify(list));
+
+    showHistory();
+}
+
+function showHistory() {
+    let list = JSON.parse(localStorage.getItem("myLocs")) || [];
+    let output = document.getElementById("history");
+    
+    output.innerHTML = "";
+    
+    for (let i = 0; i < list.length; i++) {
+        output.innerHTML += "<li>" + list[i].date + ": " + list[i].lat + ", " + list[i].lon + "</li>";
+    }
+}
+    </script>
+</body>
+</html>
