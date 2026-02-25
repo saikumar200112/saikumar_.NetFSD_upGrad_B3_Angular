@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Page</title>
+    <style>
+        body { font-family: sans-serif;
+             text-align: center; 
+             padding: 20px; 
+            }
+        table { border-collapse: collapse; 
+            margin: 20px auto; 
+            width: 300px; 
+            display: none; 
+        }
+        th, td { border: 1px solid black; 
+                padding: 10px; 
+        }
+        .row { display: none; 
+        }
+    </style>
+</head>
+<body>
+
+    <h3>Choose a Job:</h3>
+    <select id="jobMenu">
+        <option value="All">All Employees</option>
+        <option value="Manager">Manager</option>
+        <option value="Salesman">Salesman</option>
+         <option value="Developer">All Employees</option>
+
+    </select>
+    <button id="showBtn">Show Emps</button>
+
+    <table id="empTable">
+        <thead>
+            <tr><th>ID</th><th>Name</th><th>Job</th></tr>
+        </thead>
+        <tbody>
+            <tr id="row0" class="row"><td></td><td></td><td></td></tr>
+            <tr id="row1" class="row"><td></td><td></td><td></td></tr>
+            <tr id="row2" class="row"><td></td><td></td><td></td></tr>
+            <tr id="row3" class="row"><td></td><td></td><td></td></tr>
+            <tr id="row4" class="row"><td></td><td></td><td></td></tr>
+        </tbody>
+    </table>
+
+    <script>
+    
+const employees = [
+            { id: 1, name: "sai", job: "Manager", salary: 5000 },
+            { id: 2, name: "kumar", job: "Salesman", salary: 3000 },
+            { id: 3, name: "jaswanth", job: "Developer", salary: 4500 },
+            { id: 4, name: "vinod", job: "Manager", salary: 5500 },
+            { id: 5, name: "vamsi", job: "Salesman", salary: 3200 }
+        ];
+const btn = document.getElementById('showBtn');
+const menu = document.getElementById('jobMenu');
+const table = document.getElementById('empTable');
+
+// 3. Put the rows in a simple array (No Array.from needed!)
+const myRows = [
+    document.getElementById('row0'),
+    document.getElementById('row1'),
+    document.getElementById('row2'),
+    document.getElementById('row3'),
+    document.getElementById('row4')
+];
+
+// 4. The main logic
+const displayData = (filteredList) => {
+    // Hide all rows first using map
+    myRows.map(r => r.style.display = "none");
+    table.style.display = "table";
+
+    filteredList.map((person, index) => {
+        const currentRow = myRows[index];
+        
+        if (currentRow) {
+            currentRow.cells[0].textContent = person.id;
+            currentRow.cells[1].textContent = person.name;
+            currentRow.cells[2].textContent = person.job;
+            currentRow.style.display = "table-row";
+        }
+    });
+};
+
+// 5. When user clicks the button
+btn.addEventListener('click', () => {
+    const choice = menu.value;
+
+    // Use filter to pick the right people
+    const results = (choice === "All") 
+        ? employees 
+        : employees.filter(emp => emp.job === choice);
+
+    displayData(results);
+});
+    </script>
+</body>
+</html>
