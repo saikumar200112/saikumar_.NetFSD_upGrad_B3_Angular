@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+</head>
+<body>
+    <button id="b1" onclick="displayAnalysis(studentMarks)">Analyse Results</button>
+    <p id="p1"></p>
+    <br/>
+    <p id="p2"></p>
+    <br/>
+    <p id="p3"></p>
+    <br/>
+    <script>
+       let studentMarks=[80,75,90,95,88,85,78];
+       let Analyse={
+            calculateTotal:(marks)=>marks.reduce((sum,mark)=> sum + mark,0),
+            calculateAverage:(marks)=>{
+                let total= Analyse.calculateTotal(marks);
+                return(total/marks.length).toFixed(2);
+            },
+
+           gradeAnalyse : (marks)=>marks.map(mark=>marks>=50 ? "Pass" :"Fail"),
+           checkAverage :(average) => average>=40 ? "Passed" :"Failed"
+       } ;
+       let displayAnalysis=(marks)=>{
+        let total=Analyse.calculateTotal(marks);
+        let average=Analyse.calculateAverage(marks);
+        let status=Analyse.checkAverage(average);
+        let results=Analyse.gradeAnalyse(marks);
+        
+        document.getElementById("p1").innerHTML=`<strong>Total Marks</strong>: ${total}`;
+        document.getElementById("p2").innerHTML=`<strong>Average Percentage</strong>:${average}%`;
+        document.getElementById("p3").innerHTML=` <strong>Status</strong> :${status}`;
+       }
+      
+
+
+
+
+
+
+    </script>
+</body>
+</html>
