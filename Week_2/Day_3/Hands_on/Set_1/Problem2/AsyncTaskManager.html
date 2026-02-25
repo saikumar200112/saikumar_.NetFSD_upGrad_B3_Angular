@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+  <h2>Async Task Manager</h2>
+  
+  <input type="text" id="taskInput" placeholder="Enter task">
+  <button id="addBtn">Add Task</button>
+  <button id="delbtn">delet task</button>
+  <button id="lisbtn">List All Tasks</button>
+  <div id="display"></div>
+
+  <script>
+    let tasks = [];
+
+    const saveTask = async (newTask) => {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          tasks.push(newTask); 
+          resolve();          
+        }, 1000);
+      });
+    };
+      const removeTask = async () => {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          tasks.pop(); 
+          resolve();          
+        }, 1000);
+      });
+    };
+    const listTasks = async () => {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+
+          let taskString=tasks.length>0 ?tasks.join("<br>"):"List is empty";
+          resolve(taskString);          
+        }, 1000);
+      });
+    };
+
+    const input = document.getElementById("taskInput");
+    const button1 = document.getElementById("addBtn");
+    const button2 = document.getElementById("delbtn");
+    const button3 = document.getElementById("lisbtn");
+    const display = document.getElementById("display");
+
+    button1.onclick = async () => {
+      if(input.value === "") return;
+
+      
+      button1.innerText = "Saving";
+      
+      await saveTask(input.value); 
+      
+      display.innerText = `Last Task Added: ${tasks[tasks.length - 1]}`;
+      
+      button1.innerText = "Add Task";
+      input.value = "";
+    };
+    button2.onclick=async () =>{
+        if(tasks.length===0)return;
+        button2.innerText="Deleting";
+        await removeTask();
+        if (tasks.length>0){
+            display.innerText=`last task :${tasks[tasks.length-1]}`;
+        }
+        else{
+            display.innerText=`list is empty`;
+        }
+        button2.innerText="Delete last task";
+    };
+    button3.onclick=async() =>{
+        button3.innerText="Loading List";
+        const allTasks=await listTasks();
+        display.innerHTML=`<strong>Current Tasks:</strong><br>${allTasks}`;
+        button3.innerText="List All Tasks";
+    };
+  </script>
+
+</body>
+</html>

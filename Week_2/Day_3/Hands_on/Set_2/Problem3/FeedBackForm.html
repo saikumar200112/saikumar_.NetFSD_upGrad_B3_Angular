@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+</head>
+<body>
+
+    <div class="card">
+        <h2>We value your input</h2>
+        <button id="feedback-btn">Submit Feedback</button>
+        <p id="message-area"></p>
+    </div>
+
+    <script>
+      const feedbackBtn = document.getElementById('feedback-btn');
+      const messageArea = document.getElementById('message-area');
+
+      function showConfirmation() {
+            messageArea.textContent = "Thank you! Your feedback has been received.";
+    
+
+            feedbackBtn.style.display = "none";
+      }
+
+
+     feedbackBtn.addEventListener('click', showConfirmation);
+    </script>
+</body>
+</html>

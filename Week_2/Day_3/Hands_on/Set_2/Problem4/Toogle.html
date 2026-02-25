@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+
+body {
+    background-color: #ffffff;
+    color: #333333;
+    font-family: sans-serif;
+   
+}
+
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+}
+
+button {
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid #333;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Theme Switcher</h1>
+        <p>Click the button below to change the vibe.</p>
+        <button id="theme-toggle">Switch Theme</button>
+    </div>
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        const currentTheme = localStorage.getItem('theme');
+
+        if (currentTheme === 'dark') {
+    body.classList.add('dark-mode');
+}
+
+          toggleBtn.addEventListener('click', () => {
+          body.classList.toggle('dark-mode');
+          if (body.classList.contains('dark-mode')) {
+          localStorage.setItem('theme', 'dark');
+       }     else {
+               localStorage.setItem('theme', 'light');
+               }
+    });
+    </script>
+</body>
+</html>

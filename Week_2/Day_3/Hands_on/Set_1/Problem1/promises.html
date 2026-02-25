@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>Weather Search</h2>
+    <input type="text" id="cityInput" placeholder="Enter city name ">
+    <button id="fetchBtn">Search Weather</button>
+    <div id="weatherDisplay" style="margin-top: 20px; font-family: Arial, sans-serif;"></div>
+
+    <script>
+        const getWeatherData = () => {
+    const cityInput = document.getElementById("cityInput").value;
+    const display = document.getElementById("weatherDisplay");
+
+    if (!cityInput) {
+        display.innerHTML = "<p style='color: orange;'>Please enter a city name.</p>";
+        return;
+    }
+
+    const geoURL = `https://geocoding-api.open-meteo.com/v1/search?name=${cityInput}&count=1&language=en&format=json`;
+
+    display.innerHTML = "<em>Finding city</em>";
+
+    fetch(geoURL)
+        .then(response => {
+            if (!response.ok) throw new Error("Geocoding service failed.");
+            return response.json();
+        })
+        .then(geoData => {
+        
+            if (!geoData.results || geoData.results.length === 0) {
+                throw new Error("City not found. Please try again.");
+            }
+
+            const { latitude, longitude, name, country } = geoData.results[0];
+            display.innerHTML = `<em>Fetching weather for ${name}, ${country}.</em>`;
+
+    
+            const weatherURL = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`;
+            
+            return fetch(weatherURL).then(res => {
+                if (!res.ok) throw new Error("Weather service failed.");
+                return res.json().then(weatherData => ({ ...weatherData, cityName: name }));
+            });
+        })
+        .then(finalData => {
+            const { temperature, windspeed, time } = finalData.current_weather;
+
+            display.innerHTML = ` 
+                <div style=" padding: 15px; border-radius: 10px; width: fit-content;">
+                    <h3>${finalData.cityName} Weather</h3>
+                    <p><strong>Temp:</strong> ${temperature}°C</p>
+                    <p><strong>Wind:</strong> ${windspeed} km/h</p>
+                    <hr>
+                    <small>Updated: ${time}</small>
+                </div>
+            `;
+        })
+        .catch(error => {
+
+            console.error("Error:", error);
+            display.innerHTML = `<b style="color: red;"> ${error.message}</b>`;
+        });
+};
+
+document.getElementById("fetchBtn").onclick = () => getWeatherData();
+    </script>
+</body>
+</html>

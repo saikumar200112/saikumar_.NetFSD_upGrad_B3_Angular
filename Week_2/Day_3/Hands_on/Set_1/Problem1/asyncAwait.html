@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <title>Document</title>
+</head>
+<body>
+    <button  onclick="fn_getData()">Get Data</button>
+    <div id="container"></div>
+    <script>
+        var lstobj=document.getElementById("container");
+        async function fn_getData(){
+            let url="https://api.open-meteo.com/v1/forecast?latitude=51.5074&longitude=-0.1278&current_weather=true";
+            let response=await window.fetch(url);
+            let collectData=await response.json();
+    
+            const { temperature, windspeed, time } = collectData.current_weather;
+        
+            lstobj.innerHTML = `
+            <h3>Weather Report</h3>
+            <p><strong>Temp:</strong> ${temperature}°C</p>
+            <p><strong>Wind:</strong> ${windspeed} km/h</p>
+            <p><strong>Updated:</strong> ${time}</p>
+        `
+        }
+        
+    </script>
+</body>
+</html>
