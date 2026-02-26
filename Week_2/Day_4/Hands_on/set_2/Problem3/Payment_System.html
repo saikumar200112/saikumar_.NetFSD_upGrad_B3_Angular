@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <h1>Payment System</h1>
+</head>
+<body>
+    <button id="b1" onclick="payementDetails()">Payment Details</button>
+    <p id="p1"></p>
+    <br/>
+    <p id="p2"></p>
+    <br/>
+    <p id="p3"></p>
+    <script>
+        class payment{
+          
+          pay(amount){
+            return `Processing Payment of ${amount}`;
+          } 
+        }
+        class CreditCardPayment{
+            pay(amount){
+                return `paid ${amount} using creditcard`;
+            }
+        }
+        class UPIPayment{
+            pay(amount){
+                return `paid ${amount} using upi`;
+            }
+        }
+        class cashPayment{
+            pay(amount){
+                return `paid ${amount} using cash payment`;
+            }
+        }
+       const cr=new CreditCardPayment();
+       const upi=new UPIPayment();
+       const cash=new cashPayment();
+       function payementDetails(){
+           document.getElementById("p1").textContent= cr.pay(500);
+           document.getElementById("p2").textContent=upi.pay(100);
+           document.getElementById("p3").textContent=cash.pay(50);
+       }
+    </script>
+</body>
+</html>

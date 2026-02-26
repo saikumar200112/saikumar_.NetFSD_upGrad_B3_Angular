@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <h1>Student Class</h1>
+</head>
+<body>
+    <button id="b1" onclick="getdata()">Get Student Info</button>
+
+<fieldset style="margin-top: 10px;">
+    <p style="font-size: 20px;" >Name:<em><span id="p1-name"></span></em></p>
+    <p style="font-size: 20px;">RollNumber:<em><span id="p1-rollnumber"></span></em> </p>
+    <p style="font-size: 20px;">Marks :<em><span id="p1-marks"></span></em></p>
+    <p style="font-size: 20px;">Grade :<em><span id="p1-grade"></span></em></p>
+</fieldset>
+    <br/>
+<fieldset>
+   <p style="font-size: 20px;">Name:<em><span id="p2-name"></span></em></p>
+    <p style="font-size: 20px;">RollNumber:<em><span id="p2-rollnumber"></span></em> </p>
+    <p style="font-size: 20px;">Marks :<em><span id="p2-marks"></span></em></p>
+    <p style="font-size: 20px;">Grade :<em><span id="p2-grade"></span></em></p>
+</fieldset>
+    <script>
+        class student{
+            
+            constructor(name,rollnumber,marks){
+                this.name=name;
+                this.rollnumber=rollnumber;
+                this.marks=marks;
+            }
+            getDisplay(value){
+                document.getElementById(`${value}-name`).textContent=this.name;
+                document.getElementById(`${value}-rollnumber`).textContent=this.rollnumber;
+                document.getElementById(`${value}-marks`).textContent=this.marks;
+                document.getElementById(`${value}-grade`).textContent=this.getGrade();
+            }
+            getGrade(){
+                if(this.marks>90){
+                    return "Grade A";
+    
+                }
+                else if(this.marks > 75){
+                    return "Grade B";
+                }
+                else if(this.marks>50){
+                    return "Grade C";
+                }
+                else if(this.marks>35 || this.marks<=50){
+                    return "Grade D"
+                }
+                else{
+                    return "Fail";
+                }
+            }
+        }
+        function getdata(){
+        const st1=new student("sai",101,92)
+        st1.getDisplay("p1");
+        const st2=new student("kumar",102,76);
+        st2.getDisplay("p2");
+        }
+    </script>
+</body>
+</html>
