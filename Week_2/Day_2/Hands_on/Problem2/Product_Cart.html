@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Cart Summary</title>
+</head>
+<body>
+    <h1>Shopping Cart Summary</h1>
+    <p>Check the <strong>Browser Console (F12)</strong> to see the invoice!</p>
+
+    <script>
+        const CartLogic = {
+        
+            calculateTotal: (items) => 
+                items.reduce((acc, item) => acc + (item.price * item.quantity), 0),
+
+            formatItemNames: (items) => 
+                items.map(item => item.name).join(", ")
+        };
+
+        const shoppingCart = [
+            { name: "Wireless Mouse", price: 250.00, quantity: 2 },
+            { name: "Mechanical Keyboard", price: 750.00, quantity: 1 },
+            { name: "USB-C Cable", price: 150.00, quantity: 3 }
+        ];
+
+        const printInvoice = (cart) => {
+            const total = CartLogic.calculateTotal(cart);
+            const names = CartLogic.formatItemNames(cart);
+
+            console.log(` Items Purchased: ${names}
+                Total Value:    ${total.toFixed(2)}
+                Status: Payment Pending
+            `            );
+        };
+
+        printInvoice(shoppingCart);
+
+    </script>
+</body>
+</html>
