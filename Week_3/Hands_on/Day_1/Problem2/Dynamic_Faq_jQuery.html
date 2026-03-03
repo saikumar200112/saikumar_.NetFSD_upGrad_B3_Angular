@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Document</title>
+    <style>
+        .question{
+            cursor: pointer;
+        }
+         .answer { 
+            padding: 15px; 
+            background: #eef2f3; 
+            display: none; 
+            color: #333;
+        }
+        .question{
+            background-color: antiquewhite;
+            height: 40px;
+        }
+        p{
+            padding: 10px;
+        }
+    </style>
+    <h1>FAQ List</h1>
+</head>
+<body>
+    
+    <div clas="container">
+       <div class="fq-item">
+        <p class="question">What is jQuery</p>
+        <p class="answer">jQuery is a fast, small, and feature-rich JavaScript library.</p>
+       </div>
+       <div class="fq-item">
+        <p class="question">How do I install it?</p>
+        <p class="answer">You can include it via a CDN link or download the file locally.</p>
+       </div>
+       <div class="fq-item">
+        <p class="question">What does slideToggle() do?</p>
+        <p class="answer">It animates the height of matching elements, showing or hiding them with a sliding effect.</p>
+       </div>
+       <div class="fq-item">
+        <p class="question">Is jQuery still relevant?</p>
+        <p class="answer">Yes, it is still widely used for DOM manipulation and legacy project maintenance.</p>
+       </div>
+       <div class="fq-item">
+        <p class="question">Can I use it with Bootstrap?</p>
+        <p class="answer">Absolutely! Bootstrap's older versions relied heavily on jQuery.</p>
+       </div>
+    </div>
+
+
+
+     <script  src="https://code.jquery.com/jquery-4.0.0.js">	
+    </script>
+    <script>
+      $(document).ready(function(){
+        $(".question").click(function(){
+            let targetAnswer=$(this).next(".answer");
+            //$(".answer").hide();
+            //$(this).next(".answer").slideToggle(300);
+            //$(this).toggleClass("active-question");
+            $(".answer").hide();
+           if(targetAnswer.is(":visible")){
+            targetAnswer.hide(300);
+           }
+           else{
+            targetAnswer.show(300);
+           }
+        })
+      });
+
+    </script>
+</body>
+</html>

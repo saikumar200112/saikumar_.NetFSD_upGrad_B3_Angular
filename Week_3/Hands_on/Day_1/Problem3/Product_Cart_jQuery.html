@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+       .product-list { 
+        margin-top: 20px; 
+        display: flex; 
+        gap: 20px; 
+    }
+    .product-card {
+         border: 1px solid #ddd;
+          padding: 15px;
+           border-radius: 8px;
+            width: 200px; 
+        }
+
+    </style>
+    <title>Document</title>
+    <h1>Product Cart</h1>
+</head>
+<body>
+    <div class="header">
+    Cart Items: <span id="cart-count">0</span>
+</div>
+
+<div class="product-list">
+    <div class="product-card">
+        <h3>Laptop</h3>
+        <button class="add-btn">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <h3>Phone</h3>
+        <button class="add-btn">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <h3>Watch</h3>
+        <button class="add-btn">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <h3>Tablet</h3>
+        <button class="add-btn">Add to Cart</button>
+    </div>
+</div>
+ <script  src="https://code.jquery.com/jquery-4.0.0.js">	
+    </script>
+<script>
+$(document).ready(function(){
+    let count=0;
+     $(".add-btn").click(function(){
+            count++;
+           $("#cart-count").text(count);
+           $(this).prop("disabled", true);
+           $(this).text("Added").css("color","green");
+          
+     })
+});
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

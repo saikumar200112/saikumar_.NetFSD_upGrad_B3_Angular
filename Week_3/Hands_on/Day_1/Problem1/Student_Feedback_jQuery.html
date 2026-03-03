@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Document</title>
+    <h1>Student Feedback Form</h1>
+</head>
+<body>
+    <form>
+    <label>Name:</label>
+    <input type="text" placeholder="Enter Your Name" id="name">
+    <br/><br/>
+    <label>Email:</label>
+    <input type="email" placeholder="Enter Your Email" id="email">
+     <br/><br/>
+    <label>Course Rating:</label>
+    <select id="rating">
+        <option value="5">Excellent</option>
+        <option value="4">Good</option>
+        <option value="3">Average</option>
+    </select>
+     <br/><br/>
+     <label>Comments:</label>
+     <textarea rows="3" id="comments"></textarea>
+      <br/><br/>
+     <button type="submit" id="b1">Sumit Feedback</button>
+    </form>
+     <p id="p1"></p>
+
+    <script  src="https://code.jquery.com/jquery-4.0.0.js">	
+    </script>
+<script>
+      
+     $(document).ready(function(){
+
+        $("#b1").click(function(event){
+            event.preventDefault();
+             let name=$("#name").val();
+             let email=$("#email").val();
+             let response=$("#p1");
+             if(name ==="" || email===""){
+                response.text("Please fill both name and email").css("color","red");
+             }
+             else{
+                response.text("Thank you"+" "+name+" Your feedback form is submitted")
+                .css("color","green")
+                .hide()
+                .fadeIn();
+
+
+
+                $("#name").val("");
+                $("#email").val("");
+                $("#comments").val("");
+                $("#rating").val("5");
+             }
+
+        });
+
+
+    });
+
+
+</script>
+</body>
+</html>
