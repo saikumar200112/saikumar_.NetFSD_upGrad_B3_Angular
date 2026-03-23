@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LinqCodeTemplate
 {
-     class Product
+    class Product
     {
         public int ProCode { get; set; }
 
@@ -37,19 +37,19 @@ namespace LinqCodeTemplate
 
         }
     }
-    internal class Problem7
+    internal class Problem6
     {
         static void Main(string[] args)
         {
             Product product = new Product();
             var products = product.GetProducts();
-            var result = products.GroupBy(p=>p.ProCategory).ToList();
+            var result = (from p in products group p by p.ProCategory into g select g).ToList();
             foreach (var item in result)
             {
-                Console.WriteLine($"Category :{item.Key}");
+                Console.WriteLine($"Category: {item.Key}");
                 foreach(var item2 in item)
                 {
-                    Console.WriteLine($" {item2.ProCategory}");
+                    Console.WriteLine($"\t{item2.ProName} -{item2.ProCode}");
                 }
             }
 

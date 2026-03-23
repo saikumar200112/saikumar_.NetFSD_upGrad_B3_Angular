@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LinqCodeTemplate
 {
-     class Product
+    class Product
     {
         public int ProCode { get; set; }
 
@@ -37,13 +37,13 @@ namespace LinqCodeTemplate
 
         }
     }
-    internal class Problem5
+    internal class Problem4
     {
         static void Main(string[] args)
         {
             Product product = new Product();
             var products = product.GetProducts();
-            var result = products.OrderBy(p=>p.ProMrp).ToList();
+            var result = (from p in products orderby p.ProMrp ascending select p).ToList();
             foreach (var item in result)
             {
                 Console.WriteLine($"{item.ProCode}\t{item.ProName}\t{item.ProMrp}");

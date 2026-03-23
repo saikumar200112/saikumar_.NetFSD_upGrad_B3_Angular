@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LinqCodeTemplate
 {
-     class Product
+    class Product
     {
         public int ProCode { get; set; }
 
@@ -43,7 +43,7 @@ namespace LinqCodeTemplate
         {
             Product product = new Product();
             var products = product.GetProducts();
-            var result = products.Where(p => p.ProCategory == "FMCG").ToList();
+            var result = (from p in products where p.ProCategory=="FMCG" select p).ToList();
             foreach (var item in result)
             {
                 Console.WriteLine($"{item.ProCode}\t{item.ProName}\t{item.ProMrp}");
