@@ -1,0 +1,28 @@
+﻿@using WebApplication1.Models
+@model List<Products>
+
+<h2>Product Inventory</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.PId</td>
+                <td>@item.Pname</td>
+                <td>@item.Price</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.PId">View Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

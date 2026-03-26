@@ -1,0 +1,27 @@
+﻿@using WebApplication1.Models
+@model List<Employee>
+
+<h2>Employee List</h2>
+
+<table border="2" cellpadding="10" cellspacing="2" >
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Job</th>
+            <th>Salary</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Employee item in Model)
+        {
+            <tr>
+                <td>@item.Empno</td>
+                <td>@item.Ename</td>
+                <td>@item.Job</td>
+                <td>@item.Salary</td>
+
+            </tr>
+        }
+    </tbody>
+</table>
