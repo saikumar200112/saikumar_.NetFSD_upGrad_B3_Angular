@@ -1,0 +1,27 @@
+﻿@model Products
+
+<h1 class="display-5">Product Controller - Delete </h1>
+
+
+@if (Model == null)
+{
+    <p>Requested Product Details are not available</p>
+}
+else
+{
+    <div>
+        Employee Id : @Model.PId  <br />
+        Employee Name : @Model.Pname  <br />
+        Employee Job : @Model.Price  <br />
+        Employee Salary : @Model.Category  <br />
+        Employee Deptno : @Model.Stock  <br />
+    </div>
+}
+
+
+<form asp-action="delete" method="post">
+    <input type="hidden" name="id" value="@Model.PId" />
+    <p>Do you want to delete this employee details?</p>
+    <button type="submit" class="btn btn-success">Delete</button>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</form>

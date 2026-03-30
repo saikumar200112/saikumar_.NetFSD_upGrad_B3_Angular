@@ -1,0 +1,19 @@
+﻿@model Products
+
+<h2>Product Details</h2>
+@if(Model == null)
+{
+    <p>Requested Product Details Not Found</p>
+}
+
+else{
+    <div>
+       <hr />
+        Product Id:@Model.PId<br/>
+        Product Name:@Model.Pname<br/>
+        Product Price:@Model.Price<br />
+        Product Category:@Model.Category<br />
+        Product Stock:@Model.Stock<br />
+</div>
+}
+
