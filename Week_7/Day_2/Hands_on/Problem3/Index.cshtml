@@ -1,0 +1,29 @@
+﻿<h2>Product Entry</h2>
+
+<form method="post" action="/Admin/Manage">
+    Name: <input type="text" name="Name" /><br />
+    Price: <input type="number" name="Price" /><br />
+    Qty: <input type="number" name="Quantity" /><br />
+    <button type="submit">Add Product</button>
+</form>
+
+<hr />
+
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Qty</th>
+    </tr>
+    @if (ViewBag.MyList != null)
+    {
+        foreach (var item in ViewBag.MyList)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Price</td>
+                <td>@item.Quantity</td>
+            </tr>
+        }
+    }
+</table>

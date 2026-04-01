@@ -1,0 +1,21 @@
+﻿@model Feedback
+
+<h2>Submit Feedback</h2>
+
+@if (ViewData["Message"] != null)
+{
+    <h3 style="color: blue;">@ViewData["Message"]</h3>
+}
+
+<form asp-action="Index" method="post">
+    <label>Name:</label><br />
+    <input type="text" asp-for="Name" /><br /><br />
+
+    <label>Comments:</label><br />
+    <textarea asp-for="Comments"></textarea><br /><br />
+
+    <label>Rating (1-5):</label><br />
+    <input type="number" asp-for="Rating" min="1" max="5" /><br /><br />
+
+    <button type="submit">Submit</button>
+</form>

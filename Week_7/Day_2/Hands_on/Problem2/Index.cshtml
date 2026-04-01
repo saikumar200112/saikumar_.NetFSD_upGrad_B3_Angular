@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Simple Calculator";
+}
+
+<h2>Simple Addition</h2>
+
+<form method="post" action="/Calculator/Add">
+    <div>
+        <label>Number 1:</label>
+        <input type="text" name="number1" />
+    </div>
+    <br />
+    <div>
+        <label>Number 2:</label>
+        <input type="text" name="number2" />
+    </div>
+    <br />
+    <button type="submit">Calculate</button>
+</form>
+
+<hr />
+
+@if (ViewData["Result"] != null)
+{
+    <h3>@ViewData["Result"]</h3>
+}

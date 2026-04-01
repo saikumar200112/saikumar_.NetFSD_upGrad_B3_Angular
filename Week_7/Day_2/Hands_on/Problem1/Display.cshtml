@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Student Details";
+}
+
+<h2>Registration Successful</h2>
+
+<div style="border: 1px solid #ccc; padding: 15px; width: 300px;">
+    <p><strong>Name:</strong> @ViewBag.StudentName</p>
+    <p><strong>Age:</strong> @ViewBag.Age</p>
+    <p><strong>Course:</strong> @ViewBag.Course</p>
+</div>
+
+<br />
+<a href="/student-portal/register">Register another student</a>
