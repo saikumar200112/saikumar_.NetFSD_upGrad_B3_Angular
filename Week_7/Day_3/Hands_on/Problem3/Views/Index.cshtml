@@ -1,0 +1,28 @@
+﻿@model List<WebApplication3.Models.Movie>
+
+<h2>Movies</h2>
+
+<a href="/Movies/Add" class="btn btn-primary">Add Movie</a>
+
+<table class="table mt-3">
+    <tr>
+        <th>Title</th>
+        <th>Genre</th>
+        <th>Price</th>
+        <th>Actions</th>
+    </tr>
+
+    @foreach (var m in Model)
+    {
+        <tr>
+            <td>@m.Title</td>
+            <td>@m.Genre</td>
+            <td>@m.Price</td>
+            <td>
+                <a href="/Movies/Edit/@m.Id" class="btn btn-warning">Edit</a>
+                <a href="/Movies/Delete/@m.Id" class="btn btn-danger">Delete</a>
+                <a href="/Movies/Details/@m.Id" class="btn btn-info">Details</a>
+            </td>
+        </tr>
+    }
+</table>

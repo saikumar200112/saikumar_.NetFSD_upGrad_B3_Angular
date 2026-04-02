@@ -1,0 +1,13 @@
+﻿@model WebApplication3.Models.Movie
+
+<h2>Edit Movie</h2>
+
+<form method="post">
+    <input asp-for="Title" class="form-control mb-2" placeholder="Title" />
+    <input asp-for="Genre" class="form-control mb-2" placeholder="Genre" />
+    <input asp-for="ReleaseDate" type="date" class="form-control mb-2" />
+    <input asp-for="Price" class="form-control mb-2" placeholder="Price" />
+    <input asp-for="Rating" class="form-control mb-2" placeholder="Rating" />
+
+    <button class="btn btn-success">Save</button>
+</form>

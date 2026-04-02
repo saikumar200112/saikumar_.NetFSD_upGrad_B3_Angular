@@ -1,0 +1,30 @@
+﻿@model List<ContactInfo>
+
+<h2>Contact List</h2>
+<a asp-action="AddContact" class="btn btn-primary">Add New Contact</a>
+
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Company</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ContactId</td>
+                <td>@item.FirstName @item.LastName</td>
+                <td>@item.CompanyName</td>
+                <td>@item.EmailId</td>
+                <td>@item.MobileNo</td>
+                <td><a asp-action="GetContactById" asp-route-id="@item.ContactId">Details</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
