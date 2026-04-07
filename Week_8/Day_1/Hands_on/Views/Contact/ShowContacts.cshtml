@@ -1,0 +1,38 @@
+﻿@model IEnumerable<ContactInfo>
+
+<h2>Contact List</h2>
+<a asp-action="Create" class="btn btn-primary">Add New Contact</a>
+
+<table class="table table-bordered mt-3">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Designation</th>
+            <th>Company</th>
+            <th>Department</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.FirstName</td>
+                <td>@item.LastName</td>
+                <td>@item.EmailId</td>
+                <td>@item.MobileNo</td>
+                <td>@item.Designation</td>
+                <td>@item.CompanyName</td>
+                <td>@item.DepartmentName</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ContactId">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@item.ContactId">Delete</a>
+                    <a asp-action="Details" asp-route-id="@item.ContactId">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
