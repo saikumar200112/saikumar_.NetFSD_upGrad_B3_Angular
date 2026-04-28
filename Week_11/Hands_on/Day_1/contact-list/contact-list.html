@@ -1,0 +1,42 @@
+<div class="container">
+  <h2>Contact Management</h2>
+
+  <div class="search-box">
+    <input type="text" [(ngModel)]="searchText" placeholder="Search by name or email...">
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let contact of contacts | searchFilter:searchText | slice:0:limit">
+        
+        <td>{{ contact.name | titlecase }}</td>
+        <td>{{ contact.email | lowercase }}</td>
+        
+        <td>{{ contact.phone | phoneFormat }}</td>
+        
+        <td>
+          <span [style.color]="contact.isActive ? 'green' : 'red'">
+            {{ contact.isActive | statusLabel }}
+          </span>
+        </td>
+        
+        <td>
+          <button (click)="toggleStatus(contact)">Toggle Status</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button class="show-btn" (click)="toggleLimit()">
+    {{ limit === 5 ? 'Show All' : 'Show Less' }}
+  </button>
+</div>
